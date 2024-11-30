@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<style>
+    
+    /* Reset Styles */
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    /*페이지 기본 설정 */
+    body{
+        display: flex;
+        min-height: 100vh;
+        /* align-items: center; */
+        justify-content: center;
+        background-color: #f2efe4;
+        font-family: 'Segoe UI', Tahoma, Geneva, sans-serif;
+        overflow-y: scroll; /*주의 스크롤 확인할것*/
+        }
+    
+    /* 메인 컨테이너 */
+    .container {
+        width: 100%;
+        max-width: 900px;
+        background-color: #ffffff;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        padding: 30px;
+        text-align: center;
+        border: 3px solid #e5d9b9;
+    }    
+
+    .intro-section {
+        background-color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        width: 100%;
+        border-radius: 10px;
+    }
+
+    /* gif 이미지 */
+    .retire-gif {
+        max-width: 90%;
+        max-height: 100%;
+        transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
+        border: 2px solid #d4b483;
+        border-radius: 10px;
+        /* filter: brightness(0.9); */
+    }
+
+    /* gif - text 분리선 */
+    .divider-horizontal1 {
+        width: 100%;
+        height: 1px;
+        background-color: rgb(223, 221, 168);
+        margin: 15px 0px 15px;
+    }
+
+    /* 텍스트 섹션 */
+    .text-section {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        position: relative;
+        padding: 0; /* 여백 제거 */
+        margin: 0; /* 여백 제거 */
+        border-radius: 10px;
+        opacity: 0.9;
+    }
+
+    /* 텍스트 컨테이너 */
+    .text-container {
+        margin-top: 2%;
+        position: relative;
+        width: 60%;
+        max-width: 400px;
+        background-color: rgba(255, 255, 240, 0.9);
+        padding: 30px;
+        box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.3);
+        border: 2px solid #c1e1ec;
+        border-radius: 15px;
+        text-align: center;
+        z-index: 2;
+    }
+
+    /* 텍스트 스타일 */
+    .text-style {
+        font-size: 2.2rem;
+        font-weight: bold;
+        color: #5d4037;
+        font-family: 'Garamond', 'Papyrus', sans-serif;
+        letter-spacing: 1px;
+        margin-bottom: 0;
+    }
+
+    /* 다시하기 버튼 */
+    .restart-button {
+        background-color: #f9f7d9; /* 따뜻한 노란색 */
+        color: #5d4037; /* Ghibli의 차분한 갈색 */
+        border: 2px solid #d4b483; /* 테두리 색상 */
+        padding: 50px;
+        margin-bottom: 5px;
+        border-radius: 10px;
+        font-size: 4rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    /* 슬라이드 컨테이너 */
+    .fade-container {
+        margin: 10px 10px 10px 10px;
+        position: relative;
+        width: 100%;
+        /* max-width: 400px; */
+        background-color: white;
+        padding: 50px;
+        box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.3);
+        border: 2px solid #c1e1ec;
+        border-radius: 15px;
+        text-align: center;
+        z-index: 2;
+    }
+
+    .fade-slider {
+        position: relative;
+        width: 500px;
+        height: 500px;
+        margin: 50px auto;
+        overflow: hidden;
+        }
+
+    .fade-item {
+        position: absolute;
+        top: 30%;
+        left: 5%;
+        right: 5%;
+        margin: 10px 10px 10px 10px;
+        width: 90%;
+        height: 100px;
+        background: white;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 24px;
+        opacity: 0;
+        transition: opacity 1s ease;
+        }
+
+    .fade-item.active {
+        opacity: 1;
+        }
+
+
+
+</style>
+</head>
+<body>
+    <div class="container">
+        <div class="intro-section">
+            <div class="fade-container">    
+                <div class="fade-slider">
+                    <div class="fade-item"><img src="Totoro-1.gif" alt="이웃집 토토로"></div>
+                    <div class="fade-item"><img src="Totoro-2.gif" alt="고양이의 보은"></div>
+                    <div class="fade-item"><img src="Totoro-3.gif" alt="하울의 움직이는 성"></div>
+                    <div class="fade-item"><img src="Totoro-4.gif" alt="센과 치히로의 행방불명"></div>
+                    <div class="fade-item"><img src="Totoro-5.gif" alt="벼량 위의 포뇨"></div>
+                    <div class="fade-item"><img src="Totoro-6.gif" alt="천공의 성 라퓨타"></div>
+                </div>
+            </div>    
+        </div>   
+
+        <!-- 본문//하단 분리선 -->
+        <div class="divider-horizontal1"></div>
+
+        <!-- 다시하기 버튼-->
+        <div id="restart-button">
+            <button class="restart-button" onclick="clickSubButton(1)">다시하기!</button>
+        </div> 
+
+        <div class="text-section">
+            <div class="text-container">
+                <div class="text-style"><h4>나가지 말아주세요</h4><h4>ㅠㅠ</h4></div>
+            </div>
+        </div>
+
+</body>
+<script>
+    
+    function clickSubButton(buttonId) {
+        switch (buttonId) {
+            case 1:
+                window.location.href = "https://tngodj.github.io/Gibli_Fan_Page/"; // 버튼 1 클릭 시 이동할 URL
+                break;
+            default:
+                console.error("잘못된 버튼 ID입니다."); // 디버그용
+        }
+    };
+
+    const fadeItems = document.querySelectorAll('.fade-item');
+    let fadeIndex = 0;
+
+    function updateFadeSlider() {
+        fadeItems.forEach((item, i) => {
+        item.classList.toggle('active', i === fadeIndex);
+        });
+        fadeIndex = (fadeIndex + 1) % fadeItems.length;
+    }
+
+setInterval(updateFadeSlider, 3000);
+updateFadeSlider();
+
+
+</script>
+</html>
